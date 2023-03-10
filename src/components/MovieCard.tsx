@@ -16,8 +16,8 @@ interface IMovieCardProps {
 const MovieCard: React.FC<IMovieCardProps> = ({ Poster, Title, Year }) => {
   return (
     <Box marginTop={3}>
-      <Card sx={{ maxWidth: 345 }}>
-        <CardMedia component="img" height="440" image={Poster} alt="Poster" />
+      <Card sx={{ maxWidth: "100%" }}>
+        <CardMedia component="img" height="700px" image={Poster} alt="Poster" />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
             {Title}
@@ -27,10 +27,11 @@ const MovieCard: React.FC<IMovieCardProps> = ({ Poster, Title, Year }) => {
           </Typography>
         </CardContent>
         <CardActions>
-          <Box display={"flex"} justifyContent={"space-between"} width={"100%"}>
-            <Button size="small">Learn More</Button>
-            <Button size="small">Add to favorites</Button>
-          </Box>
+          <Box
+            display={"flex"}
+            justifyContent={"flex-end"}
+            width={"100%"}
+          ></Box>
         </CardActions>
       </Card>
     </Box>

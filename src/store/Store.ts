@@ -1,15 +1,21 @@
-import {Action, combineReducers, configureStore, ThunkAction} from '@reduxjs/toolkit';
-import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
+import {
+  Action,
+  combineReducers,
+  configureStore,
+  ThunkAction,
+} from "@reduxjs/toolkit";
+import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
 import moviesCardSliceReducer from "@/store/moviesCardSlice/moviesCardSlice";
 import { createWrapper } from "next-redux-wrapper";
-
+import moviePageSliceReducer from "@/store/moviePageSlice/moviePageSlice";
 
 const rootReducer = combineReducers({
-    moviesCardSliceReducer,
+  moviesCardSliceReducer,
+  moviePageSliceReducer,
 });
 
 const store = configureStore({
-    reducer: rootReducer,
+  reducer: rootReducer,
 });
 
 export type AppDispatch = typeof store.dispatch;

@@ -2,19 +2,23 @@ import * as React from "react";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import { Button } from "@mui/material";
-import { ChangeEventHandler, useState } from "react";
-import { fetchMovies } from "@/store/moviesCardSlice/moviesCardSlice";
-import { useAppDispatch } from "@/store/Store";
+import { ChangeEventHandler } from "react";
+import {
+  fetchMovies,
+  setSearchValue,
+} from "@/store/moviesCardSlice/moviesCardSlice";
+import { useAppDispatch, useAppSelector } from "@/store/Store";
 
 export default function Search() {
   const dispatch = useAppDispatch();
-
-  const [searchValue, setSearchValue] = useState("");
+  const { searchValue } = useAppSelector((state) => ({
+    searchValue: state.moviesCardSliceReducer.searchValue,
+  }));
 
   const searchInputChangeHandler: ChangeEventHandler<HTMLInputElement> = (
     event
   ) => {
-    setSearchValue(event.target.value);
+    dispatch(setSearchValue(event.target.value));
   };
 
   const onSearchHandler = () => {
